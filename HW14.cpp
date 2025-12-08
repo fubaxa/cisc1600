@@ -60,3 +60,8 @@ int countSequences(int n)
     return collatz(n) + countSequences(n - 1);
 }
 
+/*
+Sample Output:
+Enter how many sequences to generate: 20000
+The number of sequences ending with 1 = 20000
+*/
