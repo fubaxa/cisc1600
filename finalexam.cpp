@@ -25,6 +25,15 @@ const double ALLOWED_MAX_RATIO = 0.02;
 const double START_THICKNESS = 1.0;
 const double STEP_THICKNESS  = 1.0;
 
+const double MIN_ANGLE_ENTRY = -70.0;
+const double MAX_ANGLE_ENTRY =  70.0;
+
+const double MIN_DISTANCE = 0.6;
+const double MAX_DISTANCE = 1.3;
+
+const double MIN_ANGLE_DEFLECTION = 10.0;
+const double MAX_ANGLE_DEFLECTION = 170.0;
+
 unsigned int seed = int(time(0));
 double random(unsigned int &seed);
 
@@ -67,20 +76,20 @@ double randRange(double minVal, double maxVal)
 
 double genAngleEntry()
 {
-    return randRange(-70.0, 70.0);
+    return randRange(MIN_ANGLE_ENTRY, MAX_ANGLE_ENTRY);
 }
 
 double genDistance()
 {
-    return randRange(0.6, 1.3);
+    return randRange(MIN_DISTANCE, MAX_DISTANCE);
 }
 
 double genAngleDeflection()
 {
     if (random(seed) < 0.5)
-        return randRange(-170.0, -10.0);
+        return randRange(-MAX_ANGLE_DEFLECTION, -MIN_ANGLE_DEFLECTION);
     else
-        return randRange(10.0, 170.0);
+        return randRange(MIN_ANGLE_DEFLECTION, MAX_ANGLE_DEFLECTION);
 }
 
 double degToRad(double deg)
